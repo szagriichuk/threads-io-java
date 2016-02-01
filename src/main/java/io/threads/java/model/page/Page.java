@@ -1,6 +1,7 @@
 package io.threads.java.model.page;
 
 import com.fasterxml.jackson.annotation.*;
+import io.threads.java.model.Properties;
 
 import java.util.HashMap;
 import java.util.Map;
