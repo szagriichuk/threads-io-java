@@ -5,6 +5,7 @@ package io.threads.java.model.track;
  */
 
 import com.fasterxml.jackson.annotation.*;
+import io.threads.java.model.Properties;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -77,5 +78,30 @@ public class Track {
     @JsonAnySetter
     public void setAdditionalProperty(String name, Object value) {
         this.additionalProperties.put(name, value);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Track track = (Track) o;
+
+        if (userId != null ? !userId.equals(track.userId) : track.userId != null) return false;
+        if (event != null ? !event.equals(track.event) : track.event != null) return false;
+        if (properties != null ? !properties.equals(track.properties) : track.properties != null) return false;
+        if (timestamp != null ? !timestamp.equals(track.timestamp) : track.timestamp != null) return false;
+        return additionalProperties != null ? additionalProperties.equals(track.additionalProperties) : track.additionalProperties == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userId != null ? userId.hashCode() : 0;
+        result = 31 * result + (event != null ? event.hashCode() : 0);
+        result = 31 * result + (properties != null ? properties.hashCode() : 0);
+        result = 31 * result + (timestamp != null ? timestamp.hashCode() : 0);
+        result = 31 * result + (additionalProperties != null ? additionalProperties.hashCode() : 0);
+        return result;
     }
 }
