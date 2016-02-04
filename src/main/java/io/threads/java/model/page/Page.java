@@ -1,8 +1,10 @@
 package io.threads.java.model.page;
 
 import com.fasterxml.jackson.annotation.*;
+import io.threads.java.model.JsonParam;
 import io.threads.java.model.Properties;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,9 +15,9 @@ import java.util.Map;
         "name",
         "properties"
 })
-public class Page {
+public class Page extends JsonParam<Page> {
     @JsonProperty("timestamp")
-    private String timestamp;
+    private Date timestamp;
     @JsonProperty("userId")
     private String userId;
     @JsonProperty("name")
@@ -26,12 +28,12 @@ public class Page {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("timestamp")
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
     @JsonProperty("timestamp")
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 

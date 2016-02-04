@@ -2,13 +2,19 @@ package io.threads.java.model;
 
 import com.goolla.http.params.Param;
 import com.goolla.serializer.Serializer;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * @author szagriichuk.
  */
 public class JsonParam<T> extends Param<T> {
-    public JsonParam(T param) {
-        super(param);
+    public JsonParam() {
+        super(null);
+    }
+
+    @Override
+    public T value() {
+        return (T) this;
     }
 
     @Override
@@ -18,6 +24,6 @@ public class JsonParam<T> extends Param<T> {
 
     @Override
     public String toString() {
-        return String.valueOf(value());
+        return ToStringBuilder.reflectionToString(this);
     }
 }

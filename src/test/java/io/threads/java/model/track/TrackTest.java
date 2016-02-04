@@ -1,5 +1,6 @@
 package io.threads.java.model.track;
 
+import com.goolla.http.params.Param;
 import com.goolla.serializer.Serializer;
 import io.threads.java.model.Properties;
 import org.junit.Test;
@@ -18,16 +19,24 @@ public class TrackTest {
         track.setEvent("test");
         track.setUserId("111");
         Properties properties = new Properties();
-        properties.setAdditionalProperty("prop1", 1);
-        properties.setAdditionalProperty("prop2", 2);
+        properties.setAnyProperty("prop1", 1);
+        properties.setAnyProperty("prop2", 2);
         track.setProperties(properties);
 
-        String data = Serializer.serialize(track);
+        String data = ser(track);
         System.out.println(data);
         assertNotNull(data);
 
-        Track track1 = Serializer.deserialize(data, Track.class);
+        Track track1 = des(data, Track.class);
         assertNotNull(track1);
         assertEquals(track, track1);
+    }
+
+
+    private String ser(Param<?> param){
+        return Serializer.serialize(param);
+    }
+    private <T> T des(String data, Class<T> clazz){
+        return Serializer.deserialize(data, clazz);
     }
 }

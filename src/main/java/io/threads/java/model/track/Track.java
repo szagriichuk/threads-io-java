@@ -5,8 +5,10 @@ package io.threads.java.model.track;
  */
 
 import com.fasterxml.jackson.annotation.*;
+import io.threads.java.model.JsonParam;
 import io.threads.java.model.Properties;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +19,7 @@ import java.util.Map;
         "properties",
         "timestamp"
 })
-public class Track {
+public class Track extends JsonParam<Track> {
 
     @JsonProperty("userId")
     private String userId;
@@ -26,7 +28,7 @@ public class Track {
     @JsonProperty("properties")
     private Properties properties;
     @JsonProperty("timestamp")
-    private String timestamp;
+    private Date timestamp;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -61,12 +63,12 @@ public class Track {
     }
 
     @JsonProperty("timestamp")
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
     @JsonProperty("timestamp")
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 

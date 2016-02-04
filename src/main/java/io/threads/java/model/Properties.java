@@ -14,7 +14,7 @@ public class Properties {
     }
 
     @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
+    public void setAnyProperty(String name, Object value) {
         this.anyProperties.put(name, value);
     }
 

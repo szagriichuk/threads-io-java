@@ -1,7 +1,9 @@
 package io.threads.java.model.remove;
 
 import com.fasterxml.jackson.annotation.*;
+import io.threads.java.model.JsonParam;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,22 +12,22 @@ import java.util.Map;
         "timestamp",
         "userId"
 })
-public class Remove {
+public class Remove extends JsonParam<Remove> {
 
     @JsonProperty("timestamp")
-    private String timestamp;
+    private Date timestamp;
     @JsonProperty("userId")
     private String userId;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("timestamp")
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
     @JsonProperty("timestamp")
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 

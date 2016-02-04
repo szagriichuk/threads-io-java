@@ -1,7 +1,10 @@
 package io.threads.java.model.identify;
 
 import com.fasterxml.jackson.annotation.*;
+import com.goolla.http.params.Param;
+import io.threads.java.model.JsonParam;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,10 +14,10 @@ import java.util.Map;
         "userId",
         "traits"
 })
-public class Identify {
+public class Identify extends JsonParam<Identify> {
 
     @JsonProperty("timestamp")
-    private String timestamp;
+    private Date timestamp;
     @JsonProperty("userId")
     private String userId;
     @JsonProperty("traits")
@@ -23,12 +26,12 @@ public class Identify {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("timestamp")
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
     @JsonProperty("timestamp")
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 
