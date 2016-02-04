@@ -16,6 +16,8 @@ import java.util.Map;
         "properties"
 })
 public class Page extends JsonParam<Page> {
+
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("timestamp")
     private Date timestamp;
     @JsonProperty("userId")
@@ -27,11 +29,13 @@ public class Page extends JsonParam<Page> {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("timestamp")
     public Date getTimestamp() {
         return timestamp;
     }
 
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("timestamp")
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;

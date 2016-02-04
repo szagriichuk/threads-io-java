@@ -27,6 +27,8 @@ public class Track extends JsonParam<Track> {
     private String event;
     @JsonProperty("properties")
     private Properties properties;
+
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("timestamp")
     private Date timestamp;
     @JsonIgnore
@@ -62,11 +64,13 @@ public class Track extends JsonParam<Track> {
         this.properties = properties;
     }
 
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("timestamp")
     public Date getTimestamp() {
         return timestamp;
     }
 
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss.SSSXXX")
     @JsonProperty("timestamp")
     public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;

@@ -5,6 +5,8 @@ import com.goolla.serializer.Serializer;
 import io.threads.java.model.Properties;
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -18,6 +20,7 @@ public class TrackTest {
         Track track = new Track();
         track.setEvent("test");
         track.setUserId("111");
+        track.setTimestamp(new Date());
         Properties properties = new Properties();
         properties.setAnyProperty("prop1", 1);
         properties.setAnyProperty("prop2", 2);

@@ -23,8 +23,8 @@ import java.io.Serializable;
  */
 public class ThreadsHttpApi extends BaseHttpApi {
     static {
-        Serializer.mapper.registerModule(new JavaTimeModule());
-        Serializer.mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+//        Serializer.mapper.serregisterModule(new JavaTimeModule());
+//        Serializer.mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
 
     public ThreadsHttpApi(String key) {
